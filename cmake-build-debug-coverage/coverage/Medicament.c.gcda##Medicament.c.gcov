@@ -1,0 +1,56 @@
+        -:    0:Source:C:/FACC/OOP/Lab2-4/Medicament.c
+        -:    0:Graph:C:\FACC\OOP\Lab2-4\cmake-build-debug-coverage\CMakeFiles\Lab2_4.dir\Medicament.c.gcno
+        -:    0:Data:C:\FACC\OOP\Lab2-4\cmake-build-debug-coverage\CMakeFiles\Lab2_4.dir\Medicament.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "Medicament.h"
+        -:    2:#include <string.h>
+        -:    3:#include "stdlib.h"
+        -:    4:
+        -:    5:/*
+        -:    6: Creeaza un nou Medicament
+        -:    7: */
+function creeazaMedicament called 20 returned 100% blocks executed 100%
+       20:    8:Medicament* creeazaMedicament(int cod_unic, char* nume, int concentratie, int cantitate){
+       20:    9:    Medicament* med = malloc(sizeof (Medicament));
+        -:   10:
+       20:   11:    med->cod_unic = cod_unic;
+       20:   12:    med->nume = nume;
+       20:   13:    med->concentratie = concentratie;
+       20:   14:    med->cantitate = cantitate;
+        -:   15:
+       20:   16:    return med;
+       20:   16-block  0
+        -:   17:}
+        -:   18:
+        -:   19:/*
+        -:   20: Dealoca memoria utilizata de Medicament
+        -:   21: */
+function destroyMedicament called 7 returned 100% blocks executed 100%
+        7:   22:void destroyMedicament(Medicament* med){
+        7:   23:    free(med->nume);
+        7:   24:    free(med);
+        7:   25:}
+        -:   26:
+function valideaza called 11 returned 100% blocks executed 100%
+       11:   27:int valideaza(Medicament* med){
+       11:   28:    if (strlen(med->nume) == 0)
+       11:   28-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 10
+        1:   29:        return 1;
+        1:   29-block  0
+       10:   30:    if (med->concentratie < 0)
+       10:   30-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 9
+        1:   31:        return 2;
+        1:   31-block  0
+        9:   32:    if (med->cantitate < 0)
+        9:   32-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 7
+        2:   33:        return 3;
+        2:   33-block  0
+        7:   34:    return 0;
+        7:   34-block  0
+        -:   35:}

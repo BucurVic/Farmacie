@@ -1,0 +1,179 @@
+        -:    0:Source:C:/FACC/OOP/Lab2-4/repo.c
+        -:    0:Graph:C:\FACC\OOP\Lab2-4\cmake-build-debug-coverage\CMakeFiles\Lab2_4.dir\repo.c.gcno
+        -:    0:Data:C:\FACC\OOP\Lab2-4\cmake-build-debug-coverage\CMakeFiles\Lab2_4.dir\repo.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "repo.h"
+        -:    2:#include <string.h>
+        -:    3:#include "stdlib.h"
+        -:    4:
+function creeazaEmpty called 9 returned 100% blocks executed 100%
+        9:    5:Lista* creeazaEmpty(){
+        9:    6:    Lista* l = malloc(sizeof(Lista));
+        9:    7:    l->capacitate = 2;
+        9:    8:    l->elemente = malloc(sizeof(Medicament) * l->capacitate);
+        9:    9:    l->lungime = 0;
+        9:   10:    return l;
+        9:   10-block  0
+        -:   11:}
+        -:   12:
+        -:   13://typedef void FunctieDist(void*);
+        -:   14:
+function destroyLista called 8 returned 100% blocks executed 100%
+        8:   15:void destroyLista(Lista* l){
+       14:   16:    for(int i=0;i<l->lungime;i++){
+        8:   16-block  0
+       14:   16-block  1
+branch  0 taken 6
+branch  1 taken 8 (fallthrough)
+        6:   17:        TElem* element = l->elemente[i];
+        6:   18:        destroyMedicament(element);
+        6:   18-block  0
+call    0 returned 6
+        -:   19:    }
+        8:   20:    l->lungime = 0;
+        8:   21:    free(l->elemente);
+        8:   22:    free(l);
+        8:   23:}
+        -:   24:
+function get_elem called 21 returned 100% blocks executed 100%
+       21:   25:TElem* get_elem(Lista* l, int pozitie){
+       21:   26:    return l->elemente[pozitie];
+       21:   26-block  0
+        -:   27:}
+        -:   28:
+function set_elem called 2 returned 100% blocks executed 100%
+        2:   29:TElem* set_elem(Lista* l, int pozitite, TElem* elem){
+        2:   30:    TElem* rez = l->elemente[pozitite];
+        2:   31:    l->elemente[pozitite] = elem;
+        2:   32:    return rez;
+        2:   32-block  0
+        -:   33:}
+        -:   34:
+function get_size called 15 returned 100% blocks executed 100%
+       15:   35:int get_size(Lista* l){
+       15:   36:    return l->lungime;
+       15:   36-block  0
+        -:   37:}
+        -:   38:
+function add called 11 returned 100% blocks executed 100%
+       11:   39:void add(Lista* l, TElem* element){
+       11:   40:    int ok = 0;
+        -:   41:
+       11:   42:    if (l->capacitate <= l->lungime){
+       11:   42-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 10
+        1:   43:        TElem** auxiliar = malloc(sizeof(TElem)*(l->capacitate+5));
+        3:   44:        for(int i=0;i<l->lungime;i++)
+        1:   44-block  0
+        3:   44-block  1
+branch  0 taken 2
+branch  1 taken 1 (fallthrough)
+        2:   45:            auxiliar[i] = l->elemente[i];
+        2:   45-block  0
+        1:   46:        free(l->elemente);
+        1:   47:        l->capacitate += 5;
+        1:   48:        l->elemente = auxiliar;
+        1:   48-block  0
+        -:   49:    }
+        -:   50:
+       14:   51:    for(int i=0;i<l->lungime;i++) {
+       11:   51-block  0
+        3:   51-block  1
+       14:   51-block  2
+branch  0 taken 4
+branch  1 taken 10 (fallthrough)
+        4:   52:        TElem* med = get_elem(l, i);
+        4:   52-block  0
+call    0 returned 4
+        4:   53:        if (med->cod_unic == element->cod_unic && strcmp(med->nume, element->nume) == 0) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 3
+        1:   53-block  0
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   54:            ok = 1;
+        1:   55:            med->concentratie = element->concentratie;
+        1:   56:            med->cantitate = element->cantitate;
+        1:   57:            free(element);
+        1:   58:            break;
+        1:   58-block  0
+        -:   59:        }
+        -:   60:    }
+       11:   61:    if (ok==0) {
+       11:   61-block  0
+branch  0 taken 10 (fallthrough)
+branch  1 taken 1
+       10:   62:        l->elemente[l->lungime] = element;
+       10:   63:        l->lungime++;
+       10:   63-block  0
+        -:   64:    }
+       11:   65:}
+        -:   66:
+function modif called 4 returned 100% blocks executed 100%
+        4:   67:int modif(Lista* l, TElem* element){
+        5:   68:    for(int i=0;i<l->lungime;i++){
+        4:   68-block  0
+        1:   68-block  1
+        5:   68-block  2
+branch  0 taken 3
+branch  1 taken 2 (fallthrough)
+        3:   69:        TElem* med = get_elem(l, i);
+        3:   69-block  0
+call    0 returned 3
+        3:   70:        if (med->cod_unic == element->cod_unic) {
+branch  0 taken 2 (fallthrough)
+branch  1 taken 1
+        2:   71:            TElem* elem = set_elem(l, i, element);
+        2:   71-block  0
+call    0 returned 2
+        2:   72:            free(elem);
+        2:   73:            return 0;
+        -:   74:        }
+        -:   75:    }
+        2:   76:    free(element);
+        2:   77:    return -1;
+        2:   77-block  0
+        -:   78:}
+        -:   79:
+function stergere called 4 returned 100% blocks executed 100%
+        4:   80:int stergere(Lista* l, int id){
+        6:   81:    for(int i=0;i<l->lungime;i++) {
+        4:   81-block  0
+        2:   81-block  1
+        6:   81-block  2
+branch  0 taken 4
+branch  1 taken 2 (fallthrough)
+        4:   82:        TElem* med = get_elem(l, i);
+        4:   82-block  0
+call    0 returned 4
+        4:   83:        if (med->cod_unic == id) {
+branch  0 taken 2 (fallthrough)
+branch  1 taken 2
+        3:   84:            for (int j=i;j<l->lungime-1;j++){
+        2:   84-block  0
+        3:   84-block  1
+branch  0 taken 1
+branch  1 taken 2 (fallthrough)
+        1:   85:                med = get_elem(l,j);
+        1:   85-block  0
+call    0 returned 1
+        1:   86:                TElem* med3 = get_elem(l,j+1);
+call    0 returned 1
+        1:   87:                med = med3;
+        -:   88:            }
+        2:   89:            l->lungime--;
+        2:   90:            if(l->lungime == 0)
+        2:   90-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:   91:                free(med->nume);
+        1:   91-block  0
+        2:   92:            free(med);
+        2:   93:            return 0;
+        2:   93-block  0
+        -:   94:        }
+        -:   95:    }
+        2:   96:    return -1;
+        2:   96-block  0
+        -:   97:}

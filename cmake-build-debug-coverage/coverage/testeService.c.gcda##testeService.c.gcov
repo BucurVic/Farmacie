@@ -1,0 +1,283 @@
+        -:    0:Source:C:/FACC/OOP/Lab2-4/testeService.c
+        -:    0:Graph:C:\FACC\OOP\Lab2-4\cmake-build-debug-coverage\CMakeFiles\Lab2_4.dir\testeService.c.gcno
+        -:    0:Data:C:\FACC\OOP\Lab2-4\cmake-build-debug-coverage\CMakeFiles\Lab2_4.dir\testeService.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "testeService.h"
+        -:    2:#include <assert.h>
+        -:    3:#include "stdlib.h"
+        -:    4:#include "string.h"
+        -:    5:
+        -:    6:
+function testaddService called 1 returned 100% blocks executed 77%
+        1:    7:void testaddService(){
+        1:    8:    Lista* l = creeazaEmpty();
+        1:    8-block  0
+call    0 returned 1
+        1:    9:    char* Nume1 = malloc(sizeof(char)*7);
+        1:   10:    strcpy(Nume1, "");
+        1:   11:    int ok = addMedicament(l, 123, Nume1, 100, 50);
+call    0 returned 1
+       1*:   12:    assert(ok != 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   12-block  0
+call    2 never executed
+        1:   12-block  1
+       1*:   13:    assert(get_size(l) == 0);
+        1:   13-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   13-block  1
+call    3 never executed
+        1:   13-block  2
+        1:   14:    strcpy(Nume1, "asdasd");
+        1:   15:    ok = addMedicament(l, -1, Nume1, -50, 50);
+        1:   15-block  0
+call    0 returned 1
+       1*:   16:    assert(ok != 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   16-block  0
+call    2 never executed
+        1:   16-block  1
+       1*:   17:    assert(get_size(l) == 0);
+        1:   17-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   17-block  1
+call    3 never executed
+        1:   17-block  2
+        1:   18:    strcpy(Nume1, "sadasd");
+        1:   19:    ok = addMedicament(l, 16, Nume1, 100, -532);
+        1:   19-block  0
+call    0 returned 1
+       1*:   20:    assert(ok != 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   20-block  0
+call    2 never executed
+        1:   20-block  1
+       1*:   21:    assert(get_size(l) == 0);
+        1:   21-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   21-block  1
+call    3 never executed
+        1:   21-block  2
+        1:   22:    strcpy(Nume1, "hihihi");
+        1:   23:    ok = addMedicament(l, 123, Nume1, 100, 50);
+        1:   23-block  0
+call    0 returned 1
+       1*:   24:    assert(ok == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   24-block  0
+call    2 never executed
+        1:   24-block  1
+       1*:   25:    assert(get_size(l) == 1);
+        1:   25-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   25-block  1
+call    3 never executed
+        1:   25-block  2
+        1:   26:    destroyLista(l);
+        1:   26-block  0
+call    0 returned 1
+        1:   27:}
+        -:   28:
+function testmodifService called 1 returned 100% blocks executed 77%
+        1:   29:void testmodifService(){
+        1:   30:    Lista* l = creeazaEmpty();
+        1:   30-block  0
+call    0 returned 1
+        1:   31:    char* Nume1 = malloc(sizeof(char)*7);
+        1:   32:    strcpy(Nume1, "hahaha");
+        1:   33:    int ok = modifMedicament(l, 123, Nume1, 100, 50);
+call    0 returned 1
+       1*:   34:    assert(ok != 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   34-block  0
+call    2 never executed
+        1:   34-block  1
+        1:   35:    strcpy(Nume1, "sadasd");
+        1:   36:    ok = modifMedicament(l, 16, Nume1, 100, -532);
+        1:   36-block  0
+call    0 returned 1
+        -:   37:
+       1*:   38:    assert(ok != 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   38-block  0
+call    2 never executed
+        1:   38-block  1
+       1*:   39:    assert(get_size(l) == 0);
+        1:   39-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   39-block  1
+call    3 never executed
+        1:   39-block  2
+        1:   40:    strcpy(Nume1, "ioioi");
+        1:   41:    ok = addMedicament(l, 999, Nume1, 100, 50);
+        1:   41-block  0
+call    0 returned 1
+       1*:   42:    assert(ok == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   42-block  0
+call    2 never executed
+        1:   42-block  1
+       1*:   43:    assert(get_size(l) == 1);
+        1:   43-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   43-block  1
+call    3 never executed
+        1:   43-block  2
+        1:   44:    strcpy(Nume1, "aiaiai");
+        1:   45:    ok = modifMedicament(l, 999, Nume1, 1, 1);
+        1:   45-block  0
+call    0 returned 1
+       1*:   46:    assert(ok == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   46-block  0
+call    2 never executed
+        1:   46-block  1
+       1*:   47:    assert(get_size(l) == 1);
+        1:   47-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   47-block  1
+call    3 never executed
+        1:   47-block  2
+        1:   48:    destroyLista(l);
+        1:   48-block  0
+call    0 returned 1
+        1:   49:}
+        -:   50:
+function teststergereService called 1 returned 100% blocks executed 78%
+        1:   51:void teststergereService(){
+        1:   52:    Lista* l = creeazaEmpty();
+        1:   52-block  0
+call    0 returned 1
+        1:   53:    char* Nume1 = malloc(sizeof(char)*7);
+        1:   54:    strcpy(Nume1, "hahaha");
+        1:   55:    int ok = addMedicament(l, 123, Nume1, 100, 50);
+call    0 returned 1
+       1*:   56:    assert(ok == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   56-block  0
+call    2 never executed
+        1:   56-block  1
+       1*:   57:    assert(get_size(l) == 1);
+        1:   57-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   57-block  1
+call    3 never executed
+        1:   57-block  2
+        -:   58:
+        1:   59:    ok = stergeMedicament(l, 999);
+        1:   59-block  0
+call    0 returned 1
+       1*:   60:    assert(ok != 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   60-block  0
+call    2 never executed
+        1:   60-block  1
+       1*:   61:    assert(get_size(l) == 1);
+        1:   61-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   61-block  1
+call    3 never executed
+        1:   61-block  2
+        -:   62:
+        1:   63:    ok = stergeMedicament(l, 123);
+        1:   63-block  0
+call    0 returned 1
+       1*:   64:    assert(ok == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   64-block  0
+call    2 never executed
+        1:   64-block  1
+       1*:   65:    assert(get_size(l) == 0);
+        1:   65-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   65-block  1
+call    3 never executed
+        1:   65-block  2
+        1:   66:    destroyLista(l);
+        1:   66-block  0
+call    0 returned 1
+        1:   67:}
+        -:   68:
+function testordonareService called 1 returned 100% blocks executed 81%
+        1:   69:void testordonareService(){
+        1:   70:    Lista* l = creeazaEmpty();
+        1:   70-block  0
+call    0 returned 1
+        1:   71:    char* Nume1 = malloc(sizeof(char)*7);
+        1:   72:    strcpy(Nume1, "Nurofen");
+        1:   73:    int ok = addMedicament(l, 123, Nume1, 100, 50);
+call    0 returned 1
+        1:   74:    int ok2 = addMedicament(l, 124, Nume1, 100, 35);
+call    0 returned 1
+        1:   75:    TElem* element1 = get_elem(l, 0);
+call    0 returned 1
+        1:   76:    TElem* element2 = get_elem(l, 1);
+call    0 returned 1
+       1*:   77:    assert(element1->cantitate == 50);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   77-block  0
+call    2 never executed
+        1:   77-block  1
+       1*:   78:    assert(element2->cantitate == 35);
+        1:   78-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   78-block  1
+call    2 never executed
+        1:   78-block  2
+        -:   79:
+        1:   80:    ordonareMedicament(l);
+        1:   80-block  0
+call    0 returned 1
+        -:   81:
+        1:   82:    element1 = get_elem(l, 0);
+call    0 returned 1
+        1:   83:    element2 = get_elem(l, 1);
+call    0 returned 1
+        -:   84:
+       1*:   85:    assert(element1->cantitate == 35);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   85-block  0
+call    2 never executed
+        1:   85-block  1
+       1*:   86:    assert(element2->cantitate == 50);
+        1:   86-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   86-block  1
+call    2 never executed
+        1:   86-block  2
+        1:   87:}

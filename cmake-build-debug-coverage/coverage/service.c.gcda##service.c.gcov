@@ -1,0 +1,86 @@
+        -:    0:Source:C:/FACC/OOP/Lab2-4/service.c
+        -:    0:Graph:C:\FACC\OOP\Lab2-4\cmake-build-debug-coverage\CMakeFiles\Lab2_4.dir\service.c.gcno
+        -:    0:Data:C:\FACC\OOP\Lab2-4\cmake-build-debug-coverage\CMakeFiles\Lab2_4.dir\service.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "service.h"
+        -:    2:#include "string.h"
+        -:    3:#include "stdlib.h"
+        -:    4:
+function addMedicament called 8 returned 100% blocks executed 100%
+        8:    5:int addMedicament(Lista* l, int cod_unic, char* nume, int concentratie, int cantitate){
+        8:    6:    TElem* med = creeazaMedicament(cod_unic, nume, concentratie, cantitate);
+        8:    6-block  0
+call    0 returned 8
+        8:    7:    int ok = valideaza(med);
+call    0 returned 8
+        8:    8:    if (ok != 0) {
+branch  0 taken 3 (fallthrough)
+branch  1 taken 5
+        3:    9:        free(med);
+        3:   10:        return ok;
+        3:   10-block  0
+        -:   11:    }
+        5:   12:    add(l, med);
+        5:   12-block  0
+call    0 returned 5
+        5:   13:    return 0;
+        -:   14:}
+        -:   15:
+function modifMedicament called 3 returned 100% blocks executed 100%
+        3:   16:int modifMedicament(Lista* l, int cod_unic, char* nume, int concentratie, int cantitate){
+        3:   17:    TElem* med = creeazaMedicament(cod_unic, nume, concentratie, cantitate);
+        3:   17-block  0
+call    0 returned 3
+        3:   18:    int ok = valideaza(med);
+call    0 returned 3
+        3:   19:    if (ok != 0) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:   20:        free(med);
+        1:   21:        return ok;
+        1:   21-block  0
+        -:   22:    }
+        2:   23:    return modif(l, med);
+        2:   23-block  0
+call    0 returned 2
+        -:   24:}
+        -:   25:
+function stergeMedicament called 2 returned 100% blocks executed 100%
+        2:   26:int stergeMedicament(Lista* l, int id){
+        2:   27:    return stergere(l, id);
+        2:   27-block  0
+call    0 returned 2
+        -:   28:}
+        -:   29:
+function ordonareMedicament called 1 returned 100% blocks executed 100%
+        1:   30:void ordonareMedicament(Lista* l){
+        2:   31:    for (int i=0;i<l->lungime-1;i++)
+        1:   31-block  0
+        1:   31-block  1
+        2:   31-block  2
+branch  0 taken 1
+branch  1 taken 1 (fallthrough)
+        2:   32:        for (int j=i+1;j<l->lungime;j++)
+        1:   32-block  0
+        1:   32-block  1
+        2:   32-block  2
+branch  0 taken 1
+branch  1 taken 1 (fallthrough)
+        1:   33:            if (strcmp(l->elemente[i]->nume, l->elemente[j]->nume) > 0 ||
+        1:   33-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   34:            (strcmp(l->elemente[i]->nume, l->elemente[j]->nume) == 0 &&
+        1:   34-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   35:            l->elemente[i]->cantitate > l->elemente[j]->cantitate)) {
+        1:   35-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   36:                TElem* element = l->elemente[i];
+        1:   37:                l->elemente[i] = l->elemente[j];
+        1:   38:                l->elemente[j] = element;
+        1:   38-block  0
+        -:   39:            }
+        1:   40:}

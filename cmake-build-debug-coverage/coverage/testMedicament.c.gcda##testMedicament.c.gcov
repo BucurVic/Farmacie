@@ -1,0 +1,48 @@
+        -:    0:Source:C:/FACC/OOP/Lab2-4/testMedicament.c
+        -:    0:Graph:C:\FACC\OOP\Lab2-4\cmake-build-debug-coverage\CMakeFiles\Lab2_4.dir\testMedicament.c.gcno
+        -:    0:Data:C:\FACC\OOP\Lab2-4\cmake-build-debug-coverage\CMakeFiles\Lab2_4.dir\testMedicament.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "testMedicament.h"
+        -:    2:#include "assert.h"
+        -:    3:#include "string.h"
+        -:    4:#include "stdlib.h"
+        -:    5:
+function testCreateDestroy called 1 returned 100% blocks executed 73%
+        1:    6:void testCreateDestroy(){
+        1:    7:    char* Nume = malloc(sizeof(char) * 8);
+        1:    8:    strcpy(Nume,"Nurofen");
+        1:    9:    Medicament* m = creeazaMedicament(123, Nume, 20, 100);
+        1:    9-block  0
+call    0 returned 1
+       1*:   10:    assert(strcmp(m->nume, "Nurofen") == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   10-block  0
+call    2 never executed
+        1:   10-block  1
+       1*:   11:    assert(m->cod_unic == 123);
+        1:   11-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   11-block  1
+call    2 never executed
+        1:   11-block  2
+       1*:   12:    assert(m->concentratie == 20);
+        1:   12-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   12-block  1
+call    2 never executed
+        1:   12-block  2
+       1*:   13:    assert(m->cantitate == 100);
+        1:   13-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   13-block  1
+call    2 never executed
+        1:   13-block  2
+        -:   14:
+        1:   15:    destroyMedicament(m);
+        1:   15-block  0
+call    0 returned 1
+        1:   16:}
